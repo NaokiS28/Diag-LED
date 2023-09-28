@@ -82,7 +82,7 @@ class Diagnostic_LED {
             (((_ec & 0xF) < 9) && ((_ec & 0xF) > 0)) //  and low nyble is between 1 and 9.
         ) {
 #elif
-        if (true) {
+        if (_ec != 0x00) {
 #endif
             errorCode = _ec;
             this->setActivity(error);
@@ -298,8 +298,8 @@ class Diagnostic_LED {
                     break;
                 }
                 case 4: {
-                    // 4 second pause (+1 second when looping)
-                    if (currentTime - errorReadoutTime >= 4000) {
+                    // 5 second pause (+1 second when looping)
+                    if (currentTime - errorReadoutTime >= 5000) {
                         errorReadoutTime = currentTime;
                         errorReadoutStep = 0;
                         errorReadoutCount = 0;
