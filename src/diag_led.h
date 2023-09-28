@@ -193,7 +193,7 @@ class Diagnostic_LED {
         }
         case heartbeat: {
             // Do heartbeat blink
-            if ((currentTime - activityLastCall) >= 100) {
+            if ((currentTime - activityLastCall) >= 75) {
                 activityLastCall = currentTime;
                 switch (heartbeatStep)
                 {
